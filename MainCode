@@ -1,0 +1,66 @@
+int white_headlight = 13; //this is going to represent the front (left and right) white headlights
+int yellow_leftlight = 11; //this is going to represent the left turn signal (front and back) yellow LED'S
+int yellow_rightlight2 = 9; //this is going to represent the right turn signal (front and back) yellow LED'S  
+int red_rearlight = 7; //this is going to represent the rear brake lights (together back) red LED'S
+int white_reverselight2 = 5; //this is going to represent the rear reverse lights (left and right back) white LED'S
+int alarm_pin = 3; //this is going to represent the buzzer after all the LED'S flash the alarm will go off
+
+void setup()
+{
+pinMode(white_headlight,OUTPUT); //Tells arduino pin that white_headlight is an output pin
+pinMode(yellow_leftlight,OUTPUT); //Tells arduino pin yellow_leftlight is an output pin
+pinMode(yellow_rightlight2,OUTPUT); //Tells arduino pin yellow_leftlight2 is an output pin
+pinMode(red_rearlight,OUTPUT); //Tells arduino pin red_rearlight is an output pin
+pinMode(white_reverselight2,OUTPUT); //Tells arduino pin white_reverselight2 is an output pin
+pinMode(alarm_pin,OUTPUT); //Tells arduino pin alarm_pin is an output pin
+}
+
+void loop () // Loops following code
+{//start void loop
+ digitalWrite(white_headlight,HIGH); //turns white_headlight on
+ delay(5000); //delays for 5 seconds
+ digitalWrite(white_headlight,LOW); //turns white_headlight off
+ delay(500); //delays for 1/2 seconds
+ 
+ for (int count = 1; count <= 5; count++)  // will repeat the 4 lines of code 5 times
+ {
+   digitalWrite(yellow_leftlight,HIGH); //turns yellow_lefttlight on
+   delay(500); //delays for 1/2 seconds
+   digitalWrite(yellow_leftlight,LOW); //turns yellow_leftlight off
+   delay(500); //delays for 1/2 seconds
+ }
+   
+ for (int count = 1; count <= 5; count++)  // will repeat the 4 lines of code 5 times
+ {
+   digitalWrite(yellow_rightlight2,HIGH); //turns yellow_lefttlight2 on
+   delay(500); //delays for 1/2 seconds
+   digitalWrite(yellow_rightlight2,LOW); //turns yellow_lefttlight2 off
+   delay(500); //delays for 1/2 seconds
+ }
+ 
+ digitalWrite(red_rearlight,HIGH); //turns red_rearlight on
+ delay(5000); //delays for 5 seconds
+  digitalWrite(red_rearlight,LOW); //turns red_rearlight of
+ delay(500); //delays for 1/2 seconds
+ digitalWrite(white_reverselight2,HIGH); //turns white_reverselight2 on
+ delay(5000); //delays for 5 seconds
+ digitalWrite(white_reverselight2,LOW); //turns white_reverselight2 off
+ delay(500); //delays for 1/2 seconds
+ tone(alarm_pin,100, 5000); // Turns alarm_pin on for 5 seconds at a frequency of 100Hz
+
+for (int count = 1; count <= 5; count++)  // will repeat the 12 lines of code 5 times
+{
+  digitalWrite(white_headlight,HIGH); //turns white_headlight on
+  digitalWrite(yellow_leftlight,HIGH); //turns yellow_leftlight on
+  digitalWrite(yellow_rightlight2,HIGH); //turns yellowright_light2 on
+  digitalWrite(red_rearlight,HIGH); //turns red_rearlight on
+  digitalWrite(white_reverselight2,HIGH); //turns white_reverselight2 on
+  delay (500); //delays for 1/2 seconds
+  digitalWrite(white_headlight,LOW); //turns white_headlight off
+  digitalWrite(yellow_leftlight,LOW); //turns yellow_leftlight off
+  digitalWrite(yellow_rightlight2,LOW); //turns yellow_rlight2 off
+  digitalWrite(red_rearlight,LOW); //turns red_rearlight off
+  digitalWrite(white_reverselight2,LOW);// turns white_reverselight2 off
+  delay(500); //delays for 1/2 seconds
+   }
+ }//end void loop
